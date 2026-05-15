@@ -1,0 +1,234 @@
+/* ============================================
+   NEON GLOW EFFECTS
+   Stranger Things Style
+   ============================================ */
+
+/* Main Title Neon */
+.neon-title {
+    color: white;
+    text-shadow:
+        0 0 10px rgba(229, 9, 20, 0.8),
+        0 0 20px rgba(229, 9, 20, 0.6),
+        0 0 40px rgba(229, 9, 20, 0.4),
+        0 0 80px rgba(229, 9, 20, 0.2),
+        0 0 120px rgba(229, 9, 20, 0.1);
+    animation: neon-pulse 3s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(229, 9, 20, 0.8),
+            0 0 20px rgba(229, 9, 20, 0.6),
+            0 0 40px rgba(229, 9, 20, 0.4),
+            0 0 80px rgba(229, 9, 20, 0.2);
+    }
+    50% {
+        text-shadow:
+            0 0 15px rgba(229, 9, 20, 1),
+            0 0 30px rgba(229, 9, 20, 0.8),
+            0 0 60px rgba(229, 9, 20, 0.6),
+            0 0 100px rgba(229, 9, 20, 0.4);
+    }
+}
+
+/* Neon Red Class */
+.neon-red {
+    color: var(--st-red);
+    text-shadow:
+        0 0 10px rgba(229, 9, 20, 0.8),
+        0 0 20px rgba(229, 9, 20, 0.6),
+        0 0 40px rgba(229, 9, 20, 0.4);
+}
+
+/* Neon Logo */
+.neon-logo {
+    color: var(--st-red);
+    text-shadow:
+        0 0 5px rgba(229, 9, 20, 0.6),
+        0 0 10px rgba(229, 9, 20, 0.4);
+    transition: all 0.3s ease;
+}
+
+.neon-logo:hover {
+    text-shadow:
+        0 0 10px rgba(229, 9, 20, 0.9),
+        0 0 20px rgba(229, 9, 20, 0.7),
+        0 0 40px rgba(229, 9, 20, 0.5);
+}
+
+/* Neon Border Glow */
+.neon-border {
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    box-shadow: 
+        0 0 10px rgba(229, 9, 20, 0.1),
+        inset 0 0 10px rgba(229, 9, 20, 0.05);
+    transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+    border-color: rgba(229, 9, 20, 0.6);
+    box-shadow: 
+        0 0 20px rgba(229, 9, 20, 0.2),
+        inset 0 0 20px rgba(229, 9, 20, 0.1);
+}
+
+/* Neon Button */
+.neon-button {
+    position: relative;
+    background: transparent;
+    border: 2px solid var(--st-red);
+    color: var(--st-red);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.neon-button:hover::before {
+    left: 100%;
+}
+
+.neon-button:hover {
+    background: rgba(229, 9, 20, 0.1);
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
+}
+
+/* Neon Text Flicker */
+.neon-flicker-text {
+    animation: text-flicker 5s linear infinite;
+}
+
+@keyframes text-flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px rgba(229, 9, 20, 0.8),
+            0 0 20px rgba(229, 9, 20, 0.6);
+    }
+    92% {
+        opacity: 1;
+    }
+    93% {
+        opacity: 0.8;
+        text-shadow: none;
+    }
+    94% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px rgba(229, 9, 20, 0.8),
+            0 0 20px rgba(229, 9, 20, 0.6);
+    }
+    96% {
+        opacity: 1;
+    }
+    97% {
+        opacity: 0.5;
+        text-shadow: none;
+    }
+    98% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px rgba(229, 9, 20, 0.8),
+            0 0 20px rgba(229, 9, 20, 0.6);
+    }
+}
+
+/* Neon Underline */
+.neon-underline {
+    position: relative;
+}
+
+.neon-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--st-red);
+    box-shadow: 0 0 10px var(--st-red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.neon-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Neon Box Shadow on Hover */
+.neon-hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.neon-hover-shadow:hover {
+    box-shadow: 
+        0 0 20px rgba(229, 9, 20, 0.2),
+        0 0 40px rgba(229, 9, 20, 0.1);
+}
+
+/* Retro CRT Effect */
+.crt-effect {
+    position: relative;
+}
+
+.crt-effect::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Neon Progress Bar */
+.neon-progress {
+    background: linear-gradient(90deg, var(--st-red), #ff6b6b);
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+/* Neon Input Focus */
+.neon-input:focus {
+    border-color: var(--st-red);
+    box-shadow: 
+        0 0 10px rgba(229, 9, 20, 0.2),
+        0 0 20px rgba(229, 9, 20, 0.1),
+        inset 0 0 10px rgba(229, 9, 20, 0.05);
+}
+
+/* Neon Card Border */
+.neon-card-border {
+    position: relative;
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-card-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg, transparent, var(--st-red), transparent);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.neon-card-border:hover::before {
+    opacity: 1;
+}

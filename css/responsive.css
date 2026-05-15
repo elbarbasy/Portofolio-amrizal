@@ -1,0 +1,230 @@
+/* ============================================
+   RESPONSIVE STYLES
+   Mobile-First Approach
+   ============================================ */
+
+/* Mobile Devices */
+@media (max-width: 640px) {
+    /* Hero */
+    .neon-title {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .typewriter-text {
+        font-size: 0.875rem !important;
+    }
+
+    .hero-content p {
+        font-size: 1rem !important;
+    }
+
+    /* Hologram */
+    .hologram-container {
+        transform: scale(0.7);
+    }
+
+    .hologram-card {
+        max-width: 280px;
+    }
+
+    /* Section Headers */
+    .font-anton.text-5xl,
+    .font-anton.text-7xl {
+        font-size: 2.5rem !important;
+    }
+
+    /* Skills Grid */
+    .skill-card {
+        padding: 1.5rem !important;
+    }
+
+    /* Projects */
+    #projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Contact Form */
+    #contact-form .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Footer */
+    footer .flex-col {
+        text-align: center;
+    }
+
+    /* Admin Modal */
+    #admin-modal .max-w-4xl {
+        margin: 1rem;
+    }
+
+    /* Floating Elements */
+    .vecna-float,
+    .demogorgon-float {
+        display: none;
+    }
+
+    /* Navbar */
+    #navbar .hidden.md\:flex {
+        display: none !important;
+    }
+
+    #navbar .md\:hidden {
+        display: flex !important;
+    }
+}
+
+/* Tablets */
+@media (min-width: 641px) and (max-width: 768px) {
+    .neon-title {
+        font-size: 3.5rem !important;
+    }
+
+    .hologram-container {
+        transform: scale(0.85);
+    }
+
+    .font-anton.text-5xl,
+    .font-anton.text-7xl {
+        font-size: 3rem !important;
+    }
+
+    #projects-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .vecna-float {
+        font-size: 4rem !important;
+    }
+
+    .demogorgon-float {
+        font-size: 8rem !important;
+    }
+}
+
+/* Small Laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .neon-title {
+        font-size: 5rem !important;
+    }
+
+    .hologram-container {
+        transform: scale(0.9);
+    }
+
+    #projects-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1025px) {
+    .neon-title {
+        font-size: 6rem !important;
+    }
+
+    #projects-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1280px) {
+    .neon-title {
+        font-size: 7rem !important;
+    }
+
+    .max-w-7xl {
+        max-width: 80rem;
+    }
+}
+
+/* ============================================
+   LANDSCAPE MODE
+   ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    #home {
+        min-height: auto;
+        padding: 6rem 0 3rem;
+    }
+
+    .hologram-container {
+        transform: scale(0.6);
+    }
+
+    .neon-title {
+        font-size: 2rem !important;
+    }
+}
+
+/* ============================================
+   HIGH DPI / RETINA
+   ============================================ */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .scanline-overlay {
+        opacity: 0.02;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .scanline-overlay {
+        display: none;
+    }
+
+    .hologram-effect {
+        animation: none;
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--st-dark);
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .scanline-overlay,
+    #particles-hero,
+    .vecna-float,
+    .demogorgon-float,
+    #navbar,
+    footer,
+    #admin-modal {
+        display: none !important;
+    }
+
+    section {
+        page-break-inside: avoid;
+        background: white !important;
+        color: black !important;
+    }
+
+    .neon-title,
+    .neon-red {
+        color: black !important;
+        text-shadow: none !important;
+    }
+}

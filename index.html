@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUHAMMAD AMRIZAL | The Upside Down Portfolio</title>
+    <meta name="description" content="Portfolio Muhammad Amrizal - Digital Content Creator, Video Editor, Graphic Designer">
+    <meta name="keywords" content="Muhammad Amrizal, Canva, CapCut, Content Creator, Stranger Things">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/neon.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'st-red': '#E50914',
+                        'st-dark': '#0A0A0A',
+                        'st-gray': '#1a1a1a',
+                        'st-neon': '#ff0040',
+                    },
+                    fontFamily: {
+                        'anton': ['Anton', 'sans-serif'],
+                        'retro': ['VT323', 'monospace'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-st-dark text-white font-body overflow-x-hidden">
+
+    <!-- Global Scanline Overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="text-3xl font-anton tracking-widest text-st-red neon-logo">
+                AMRIZAL
+            </a>
+
+            <!-- Menu Horizontal (NO HAMBURGER) -->
+            <div class="hidden md:flex items-center gap-8 text-sm tracking-wider">
+                <a href="#home" class="nav-link text-white/80 hover:text-st-red transition-colors duration-300">HOME</a>
+                <a href="#about" class="nav-link text-white/80 hover:text-st-red transition-colors duration-300">ABOUT</a>
+                <a href="#skills" class="nav-link text-white/80 hover:text-st-red transition-colors duration-300">POWERS</a>
+                <a href="#projects" class="nav-link text-white/80 hover:text-st-red transition-colors duration-300">PROJECTS</a>
+                <a href="#contact" class="nav-link text-white/80 hover:text-st-red transition-colors duration-300">CONTACT</a>
+            </div>
+
+            <!-- Mobile Menu (Horizontal Scroll) -->
+            <div class="md:hidden flex items-center gap-4 overflow-x-auto text-xs">
+                <a href="#home" class="nav-link-mobile text-white/80 hover:text-st-red whitespace-nowrap">HOME</a>
+                <a href="#about" class="nav-link-mobile text-white/80 hover:text-st-red whitespace-nowrap">ABOUT</a>
+                <a href="#skills" class="nav-link-mobile text-white/80 hover:text-st-red whitespace-nowrap">POWERS</a>
+                <a href="#projects" class="nav-link-mobile text-white/80 hover:text-st-red whitespace-nowrap">PROJECTS</a>
+                <a href="#contact" class="nav-link-mobile text-white/80 hover:text-st-red whitespace-nowrap">CONTACT</a>
+            </div>
+
+            <!-- Admin Button -->
+            <button onclick="toggleAdmin()" class="hidden md:block text-xs px-4 py-2 border border-st-red/50 hover:bg-st-red/20 hover:border-st-red text-st-red transition-all duration-300 rounded font-retro tracking-wider">
+                [ADMIN]
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-hero"></div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90"></div>
+        <!-- Particle Canvas -->
+        <canvas id="particles-hero" class="absolute inset-0 w-full h-full"></canvas>
+
+        <!-- Vecna Element -->
+        <div class="absolute top-32 left-10 opacity-20 text-8xl vecna-float">🖤</div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text -->
+            <div class="hero-content space-y-8">
+                <div class="space-y-2">
+                    <p class="font-retro text-st-red text-xl tracking-widest typewriter-text">WELCOME TO THE UPSIDE DOWN</p>
+                    <h1 class="font-anton text-6xl md:text-8xl lg:text-9xl leading-none tracking-wider neon-title">
+                        MUHAMMAD<br>
+                        <span class="text-st-red">AMRIZAL</span>
+                    </h1>
+                </div>
+
+                <p class="text-xl md:text-2xl text-gray-300 max-w-lg font-light">
+                    Digital Content Creator | Video Editor | Graphic Designer
+                </p>
+
+                <p class="text-lg text-gray-400 max-w-md italic">
+                    "Menciptakan konten visual yang bikin orang takjub — seperti dari dunia lain"
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" 
+                            class="group px-8 py-4 bg-st-red hover:bg-red-700 transition-all duration-300 text-white font-bold text-lg rounded-sm flex items-center gap-3 shadow-lg shadow-st-red/30 hover:shadow-st-red/50">
+                        <span class="text-2xl">▶</span> PLAY REEL
+                    </button>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                            class="px-8 py-4 border-2 border-white/30 hover:border-st-red hover:text-st-red transition-all duration-300 text-white font-bold text-lg rounded-sm">
+                        CONTACT ME
+                    </button>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex gap-6 pt-4">
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">📷</a>
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">🎬</a>
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">💻</a>
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">🐦</a>
+                </div>
+            </div>
+
+            <!-- Right: Hologram Lanyard -->
+            <div class="flex justify-center items-center hero-hologram">
+                <div class="hologram-container relative group cursor-pointer" onclick="triggerGlitch()">
+                    <!-- Lanyard String -->
+                    <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 w-1 h-20 bg-gradient-to-b from-transparent to-st-red/50"></div>
+
+                    <!-- ID Card Frame -->
+                    <div class="relative bg-gradient-to-br from-red-900/40 to-purple-900/40 p-1 rounded-2xl border-2 border-st-red/60 shadow-2xl shadow-st-red/20 backdrop-blur-sm hologram-card">
+                        <!-- Inner Frame -->
+                        <div class="relative overflow-hidden rounded-xl bg-black/80 p-4">
+                            <!-- Holographic Image -->
+                            <div class="relative w-72 h-80 md:w-80 md:h-96 overflow-hidden rounded-lg">
+                                <img id="profile-img" 
+                                     src="assets/images/profile.jpg" 
+                                     alt="Muhammad Amrizal"
+                                     onerror="this.src='https://via.placeholder.com/400x500/111/fff?text=MUHAMMAD+AMRIZAL'"
+                                     class="w-full h-full object-cover hologram-effect transition-transform duration-500">
+
+                                <!-- Scanline Overlay -->
+                                <div class="absolute inset-0 scanline-img"></div>
+
+                                <!-- Holographic Shine -->
+                                <div class="absolute inset-0 holographic-shine"></div>
+
+                                <!-- Glitch Overlay -->
+                                <div id="glitch-overlay" class="absolute inset-0 bg-st-red/0 transition-all duration-200 pointer-events-none"></div>
+                            </div>
+
+                            <!-- ID Info -->
+                            <div class="mt-4 text-center space-y-1">
+                                <p class="font-anton text-2xl text-st-red tracking-wider">SUBJECT 011</p>
+                                <p class="font-retro text-gray-400 text-lg">HAWKINS NATIONAL LABORATORY</p>
+                                <div class="flex justify-center gap-2 mt-2">
+                                    <span class="w-2 h-2 bg-st-red rounded-full animate-pulse"></span>
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-100"></span>
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-200"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-4 -right-4 bg-st-red text-white px-4 py-2 rounded font-retro text-lg transform rotate-6 shadow-lg border border-white/20">
+                        CLASSIFIED
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demogorgon -->
+        <div class="absolute bottom-20 right-20 opacity-15 text-[200px] demogorgon-float">👹</div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-st-red/50 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-st-red rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="relative min-h-screen py-24 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-about"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+
+        <!-- Retro Grid Overlay -->
+        <div class="absolute inset-0 retro-grid opacity-10"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="mb-16 reveal-left">
+                <p class="font-retro text-st-red text-lg mb-2 tracking-widest">/// CLASSIFIED FILE ///</p>
+                <h2 class="font-anton text-5xl md:text-7xl neon-red mb-4">FILE: SUBJECT - MUHAMMAD AMRIZAL</h2>
+                <div class="h-1 w-32 bg-st-red"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Left: Content -->
+                <div class="space-y-8 reveal-up">
+                    <div class="bg-black/60 backdrop-blur-md border border-st-red/30 p-8 rounded-lg relative overflow-hidden">
+                        <!-- Corner Decorations -->
+                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-st-red"></div>
+                        <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-st-red"></div>
+                        <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-st-red"></div>
+                        <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-st-red"></div>
+
+                        <p class="font-retro text-st-red text-xl mb-4">BIOGRAPHY:</p>
+                        <p class="text-lg leading-relaxed text-gray-300 mb-6">
+                            Saya <span class="text-st-red font-bold">Muhammad Amrizal</span>, Digital Content Creator dari Jakarta, Indonesia.
+                            Mahir menggunakan <span class="text-st-red">Canva</span> untuk desain grafis yang eye-catching,
+                            <span class="text-st-red">CapCut</span> untuk editing video yang dinamis, dan sedikit coding
+                            untuk membuat website seperti ini.
+                        </p>
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            Saya suka mengubah ide biasa menjadi sesuatu yang memorable dan tak terlupakan.
+                            Setiap proyek adalah petualangan baru di dunia yang penuh kreativitas.
+                        </p>
+                    </div>
+
+                    <!-- Abilities List -->
+                    <div class="space-y-4">
+                        <p class="font-retro text-st-red text-xl tracking-widest">/// ABILITIES DETECTED ///</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="ability-card bg-black/50 border border-white/10 p-4 rounded hover:border-st-red/50 transition-all duration-300 group">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl group-hover:scale-110 transition-transform">🎨</span>
+                                    <div>
+                                        <p class="font-bold text-white">Canva Expert</p>
+                                        <p class="text-xs text-gray-500 font-retro">LEVEL: MASTER</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-st-red to-purple-500 w-[95%]"></div>
+                                </div>
+                            </div>
+
+                            <div class="ability-card bg-black/50 border border-white/10 p-4 rounded hover:border-st-red/50 transition-all duration-300 group">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl group-hover:scale-110 transition-transform">🎥</span>
+                                    <div>
+                                        <p class="font-bold text-white">CapCut Editor</p>
+                                        <p class="text-xs text-gray-500 font-retro">LEVEL: ADVANCED</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-st-red to-purple-500 w-[85%]"></div>
+                                </div>
+                            </div>
+
+                            <div class="ability-card bg-black/50 border border-white/10 p-4 rounded hover:border-st-red/50 transition-all duration-300 group">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl group-hover:scale-110 transition-transform">📱</span>
+                                    <div>
+                                        <p class="font-bold text-white">Content Creator</p>
+                                        <p class="text-xs text-gray-500 font-retro">LEVEL: EXPERT</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-st-red to-purple-500 w-[90%]"></div>
+                                </div>
+                            </div>
+
+                            <div class="ability-card bg-black/50 border border-white/10 p-4 rounded hover:border-st-red/50 transition-all duration-300 group">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl group-hover:scale-110 transition-transform">💻</span>
+                                    <div>
+                                        <p class="font-bold text-white">Basic Coding</p>
+                                        <p class="text-xs text-gray-500 font-retro">LEVEL: LEARNING</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-st-red to-purple-500 w-[60%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <div class="border-l-4 border-st-red pl-6 py-2">
+                        <p class="text-xl italic text-gray-400 font-light">
+                            "Friends don't lie. And I don't lie about quality."
+                        </p>
+                        <p class="text-sm text-st-red mt-2 font-retro">— MUHAMMAD AMRIZAL</p>
+                    </div>
+                </div>
+
+                <!-- Right: Visual -->
+                <div class="relative reveal-right">
+                    <div class="relative bg-gradient-to-br from-st-red/20 to-purple-900/20 p-1 rounded-2xl border border-st-red/30">
+                        <img src="assets/images/upside-down.jpg" 
+                             alt="The Upside Down"
+                             onerror="this.src='https://via.placeholder.com/600x800/111/fff?text=THE+UPSIDE+DOWN'"
+                             class="w-full h-auto rounded-xl opacity-80">
+
+                        <!-- Overlay Text -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <p class="font-retro text-st-red text-lg">LOCATION: HAWKINS, INDIANA</p>
+                            <p class="text-sm text-gray-400">Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats -->
+                    <div class="absolute -top-6 -right-6 bg-black/80 border border-st-red/50 p-4 rounded-lg backdrop-blur-sm">
+                        <p class="font-retro text-st-red text-sm">STATUS</p>
+                        <p class="text-2xl font-bold">ACTIVE</p>
+                        <div class="flex gap-1 mt-1">
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse delay-75"></div>
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse delay-150"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS / MY POWERS SECTION -->
+    <section id="skills" class="relative min-h-screen py-24 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-skills"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90"></div>
+
+        <!-- Animated Shapes -->
+        <div class="absolute top-20 left-10 w-32 h-32 border border-st-red/20 rounded-full animate-spin-slow"></div>
+        <div class="absolute bottom-20 right-20 w-48 h-48 border border-purple-500/20 rounded-full animate-spin-slow reverse"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <p class="font-retro text-st-red text-lg mb-2 tracking-widest">/// SYSTEM ANALYSIS ///</p>
+                <h2 class="font-anton text-5xl md:text-7xl neon-red">MY POWERS</h2>
+                <div class="h-1 w-24 bg-st-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="skill-card group relative bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:border-st-red/50 transition-all duration-500 reveal-up delay-100">
+                    <div class="absolute inset-0 bg-gradient-to-br from-st-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎨</div>
+                        <h3 class="font-anton text-2xl mb-2 text-white group-hover:text-st-red transition-colors">CANVA</h3>
+                        <p class="text-gray-400 text-sm mb-4">Graphic Design Expert</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>SOCIAL MEDIA</span>
+                                <span class="text-st-red">95%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-pink-500 w-[95%] rounded-full"></div>
+                            </div>
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>BRANDING</span>
+                                <span class="text-st-red">90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-pink-500 w-[90%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="skill-card group relative bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:border-st-red/50 transition-all duration-500 reveal-up delay-200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-st-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎬</div>
+                        <h3 class="font-anton text-2xl mb-2 text-white group-hover:text-st-red transition-colors">CAPCUT</h3>
+                        <p class="text-gray-400 text-sm mb-4">Video Editing Pro</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>TRANSITIONS</span>
+                                <span class="text-st-red">88%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-blue-500 w-[88%] rounded-full"></div>
+                            </div>
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>EFFECTS</span>
+                                <span class="text-st-red">85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-blue-500 w-[85%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="skill-card group relative bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:border-st-red/50 transition-all duration-500 reveal-up delay-300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-st-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
+                        <h3 class="font-anton text-2xl mb-2 text-white group-hover:text-st-red transition-colors">CONTENT</h3>
+                        <p class="text-gray-400 text-sm mb-4">Social Media Strategy</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>INSTAGRAM</span>
+                                <span class="text-st-red">92%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-purple-500 w-[92%] rounded-full"></div>
+                            </div>
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>TIKTOK</span>
+                                <span class="text-st-red">90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-purple-500 w-[90%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="skill-card group relative bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:border-st-red/50 transition-all duration-500 reveal-up delay-400">
+                    <div class="absolute inset-0 bg-gradient-to-br from-st-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">💻</div>
+                        <h3 class="font-anton text-2xl mb-2 text-white group-hover:text-st-red transition-colors">CODING</h3>
+                        <p class="text-gray-400 text-sm mb-4">Web Development</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>HTML/CSS</span>
+                                <span class="text-st-red">75%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-green-500 w-[75%] rounded-full"></div>
+                            </div>
+                            <div class="flex justify-between text-xs font-retro">
+                                <span>JAVASCRIPT</span>
+                                <span class="text-st-red">60%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-st-red to-green-500 w-[60%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Tools -->
+            <div class="mt-16 reveal-up">
+                <p class="font-retro text-st-red text-center text-lg mb-8 tracking-widest">/// ADDITIONAL TOOLS ///</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-6 py-3 bg-black/50 border border-white/20 rounded-full text-sm hover:border-st-red hover:text-st-red transition-all duration-300 cursor-default">Adobe Photoshop</span>
+                    <span class="px-6 py-3 bg-black/50 border border-white/20 rounded-full text-sm hover:border-st-red hover:text-st-red transition-all duration-300 cursor-default">Figma</span>
+                    <span class="px-6 py-3 bg-black/50 border border-white/20 rounded-full text-sm hover:border-st-red hover:text-st-red transition-all duration-300 cursor-default">Premiere Pro</span>
+                    <span class="px-6 py-3 bg-black/50 border border-white/20 rounded-full text-sm hover:border-st-red hover:text-st-red transition-all duration-300 cursor-default">Tailwind CSS</span>
+                    <span class="px-6 py-3 bg-black/50 border border-white/20 rounded-full text-sm hover:border-st-red hover:text-st-red transition-all duration-300 cursor-default">GitHub</span>
+                    <span class="px-6 py-3 bg-black/50 border border-white/20 rounded-full text-sm hover:border-st-red hover:text-st-red transition-all duration-300 cursor-default">VS Code</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="relative min-h-screen py-24 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-projects"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16 reveal-up">
+                <div>
+                    <p class="font-retro text-st-red text-lg mb-2 tracking-widest">/// SEASON 01 ///</p>
+                    <h2 class="font-anton text-5xl md:text-7xl neon-red">MY PROJECTS</h2>
+                    <div class="h-1 w-24 bg-st-red mt-4"></div>
+                </div>
+                <button onclick="toggleAdmin()" class="hidden md:block px-6 py-3 border border-st-red/50 hover:bg-st-red/20 text-st-red font-retro tracking-wider transition-all duration-300 rounded">
+                    + ADD PROJECT
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects loaded via JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-projects" class="hidden text-center py-16">
+                <p class="font-retro text-2xl text-gray-500">NO PROJECTS FOUND IN THE UPSIDE DOWN</p>
+                <button onclick="toggleAdmin()" class="mt-4 px-6 py-3 bg-st-red text-white rounded hover:bg-red-700 transition-colors">
+                    ADD FIRST PROJECT
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="relative min-h-screen py-24 overflow-hidden flex items-center">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-contact"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90"></div>
+
+        <!-- Animated Elements -->
+        <div class="absolute top-1/4 left-10 w-2 h-2 bg-st-red rounded-full animate-ping"></div>
+        <div class="absolute bottom-1/3 right-20 w-2 h-2 bg-purple-500 rounded-full animate-ping delay-500"></div>
+        <div class="absolute top-1/2 left-1/4 w-1 h-1 bg-blue-400 rounded-full animate-ping delay-1000"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 w-full">
+            <div class="text-center mb-12 reveal-up">
+                <p class="font-retro text-st-red text-lg mb-2 tracking-widest">/// ESTABLISH CONNECTION ///</p>
+                <h2 class="font-anton text-5xl md:text-7xl neon-red mb-4">OPEN THE GATE</h2>
+                <p class="text-gray-400 text-lg">Send a message through the void...</p>
+            </div>
+
+            <div class="bg-black/60 backdrop-blur-md border border-st-red/30 p-8 md:p-12 rounded-2xl relative overflow-hidden reveal-up">
+                <!-- Corner Accents -->
+                <div class="absolute top-0 left-0 w-16 h-16">
+                    <div class="absolute top-4 left-4 w-full h-0.5 bg-st-red"></div>
+                    <div class="absolute top-4 left-4 w-0.5 h-full bg-st-red"></div>
+                </div>
+                <div class="absolute top-0 right-0 w-16 h-16">
+                    <div class="absolute top-4 right-4 w-full h-0.5 bg-st-red"></div>
+                    <div class="absolute top-4 right-4 w-0.5 h-full bg-st-red"></div>
+                </div>
+                <div class="absolute bottom-0 left-0 w-16 h-16">
+                    <div class="absolute bottom-4 left-4 w-full h-0.5 bg-st-red"></div>
+                    <div class="absolute bottom-4 left-4 w-0.5 h-full bg-st-red"></div>
+                </div>
+                <div class="absolute bottom-0 right-0 w-16 h-16">
+                    <div class="absolute bottom-4 right-4 w-full h-0.5 bg-st-red"></div>
+                    <div class="absolute bottom-4 right-4 w-0.5 h-full bg-st-red"></div>
+                </div>
+
+                <form id="contact-form" class="space-y-6" onsubmit="handleContact(event)">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="font-retro text-st-red text-sm tracking-wider">NAME / CODENAME</label>
+                            <input type="text" required
+                                   class="w-full bg-black/50 border border-white/20 focus:border-st-red focus:shadow-[0_0_15px_rgba(229,9,20,0.3)] p-4 rounded text-white placeholder-gray-600 transition-all duration-300 outline-none"
+                                   placeholder="Enter your name...">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-retro text-st-red text-sm tracking-wider">EMAIL / FREQUENCY</label>
+                            <input type="email" required
+                                   class="w-full bg-black/50 border border-white/20 focus:border-st-red focus:shadow-[0_0_15px_rgba(229,9,20,0.3)] p-4 rounded text-white placeholder-gray-600 transition-all duration-300 outline-none"
+                                   placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="font-retro text-st-red text-sm tracking-wider">MESSAGE / TRANSMISSION</label>
+                        <textarea required rows="5"
+                                  class="w-full bg-black/50 border border-white/20 focus:border-st-red focus:shadow-[0_0_15px_rgba(229,9,20,0.3)] p-4 rounded text-white placeholder-gray-600 transition-all duration-300 outline-none resize-none"
+                                  placeholder="Type your message here..."></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full py-4 bg-st-red hover:bg-red-700 text-white font-bold text-lg rounded transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,9,20,0.5)] flex items-center justify-center gap-3 group">
+                        <span class="font-retro tracking-widest">TRANSMIT MESSAGE</span>
+                        <span class="group-hover:translate-x-2 transition-transform">→</span>
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div id="contact-success" class="hidden text-center py-8">
+                    <div class="text-6xl mb-4">📡</div>
+                    <h3 class="font-anton text-2xl text-st-red mb-2">MESSAGE TRANSMITTED</h3>
+                    <p class="text-gray-400">Your signal has been received in the Upside Down.</p>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6 text-center reveal-up">
+                <div class="p-6 border border-white/10 rounded-lg hover:border-st-red/50 transition-all duration-300">
+                    <div class="text-3xl mb-3">📧</div>
+                    <p class="font-retro text-st-red text-sm">EMAIL</p>
+                    <p class="text-gray-300 mt-1">muhammad.amrizal@email.com</p>
+                </div>
+                <div class="p-6 border border-white/10 rounded-lg hover:border-st-red/50 transition-all duration-300">
+                    <div class="text-3xl mb-3">📱</div>
+                    <p class="font-retro text-st-red text-sm">PHONE</p>
+                    <p class="text-gray-300 mt-1">+62 812-3456-7890</p>
+                </div>
+                <div class="p-6 border border-white/10 rounded-lg hover:border-st-red/50 transition-all duration-300">
+                    <div class="text-3xl mb-3">📍</div>
+                    <p class="font-retro text-st-red text-sm">LOCATION</p>
+                    <p class="text-gray-300 mt-1">Jakarta, Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative py-12 border-t border-st-red/20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-anton text-3xl text-st-red neon-red mb-2">AMRIZAL</h3>
+                    <p class="text-gray-500 text-sm">The Upside Down Portfolio © 2026</p>
+                </div>
+
+                <div class="flex gap-6">
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">📷</a>
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">🎬</a>
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">💻</a>
+                    <a href="#" class="text-2xl hover:text-st-red transition-colors hover:scale-110 transform duration-300">🐦</a>
+                </div>
+
+                <button onclick="toggleAdmin()" class="text-xs text-st-red/50 hover:text-st-red transition-colors font-retro">
+                    [ADMIN LOGIN]
+                </button>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="font-retro text-st-red/30 text-sm tracking-[0.3em]">
+                    "SOMETIMES THE BAD GUYS ARE SMART TOO" — STRANGER THINGS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ADMIN PANEL MODAL -->
+    <div id="admin-modal" class="hidden fixed inset-0 bg-black/95 z-[100] overflow-y-auto">
+        <div class="min-h-screen flex items-center justify-center p-4">
+            <div class="w-full max-w-4xl bg-st-gray border border-st-red/30 rounded-2xl overflow-hidden relative">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-st-red/20 to-transparent p-6 border-b border-st-red/30 flex justify-between items-center">
+                    <div>
+                        <h2 class="font-anton text-3xl text-st-red">HAWKINS LAB ADMIN</h2>
+                        <p class="font-retro text-gray-400 text-sm mt-1">/// PROJECT MANAGEMENT SYSTEM ///</p>
+                    </div>
+                    <button onclick="toggleAdmin()" class="text-3xl text-gray-400 hover:text-st-red transition-colors">&times;</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="admin-login" class="p-8">
+                    <div class="max-w-md mx-auto space-y-6">
+                        <div class="text-center mb-8">
+                            <div class="text-6xl mb-4">🔐</div>
+                            <p class="font-retro text-st-red">AUTHORIZATION REQUIRED</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <input type="text" id="admin-user" placeholder="Username" 
+                                   class="w-full bg-black border border-white/20 focus:border-st-red p-4 rounded text-white outline-none transition-colors">
+                            <input type="password" id="admin-pass" placeholder="Password" 
+                                   class="w-full bg-black border border-white/20 focus:border-st-red p-4 rounded text-white outline-none transition-colors">
+                        </div>
+
+                        <button onclick="adminLogin()" 
+                                class="w-full py-4 bg-st-red hover:bg-red-700 text-white font-bold rounded transition-colors">
+                            ACCESS SYSTEM
+                        </button>
+
+                        <p class="text-center text-xs text-gray-600 font-retro">DEFAULT: admin / 123456</p>
+                    </div>
+                </div>
+
+                <!-- Admin Dashboard -->
+                <div id="admin-dashboard" class="hidden p-8">
+                    <!-- Add Project Form -->
+                    <div class="bg-black/50 p-6 rounded-xl border border-white/10 mb-8">
+                        <h3 class="font-anton text-xl text-st-red mb-4">ADD NEW PROJECT</h3>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" id="project-title" placeholder="Project Title" 
+                                   class="bg-black border border-white/20 focus:border-st-red p-3 rounded text-white outline-none transition-colors">
+                            <input type="text" id="project-tools" placeholder="Tools (Canva, CapCut, etc)" 
+                                   class="bg-black border border-white/20 focus:border-st-red p-3 rounded text-white outline-none transition-colors">
+                        </div>
+                        <textarea id="project-desc" placeholder="Project Description" rows="3"
+                                  class="w-full bg-black border border-white/20 focus:border-st-red p-3 rounded text-white outline-none transition-colors mb-4 resize-none"></textarea>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" id="project-image" placeholder="Thumbnail URL" 
+                                   class="bg-black border border-white/20 focus:border-st-red p-3 rounded text-white outline-none transition-colors">
+                            <input type="text" id="project-link" placeholder="Demo Link (optional)" 
+                                   class="bg-black border border-white/20 focus:border-st-red p-3 rounded text-white outline-none transition-colors">
+                        </div>
+                        <div class="flex gap-4">
+                            <button onclick="addProject()" 
+                                    class="px-8 py-3 bg-st-red hover:bg-red-700 text-white rounded transition-colors font-bold">
+                                ADD PROJECT
+                            </button>
+                            <button onclick="clearForm()" 
+                                    class="px-8 py-3 border border-white/20 hover:border-st-red text-white rounded transition-colors">
+                                CLEAR
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projects List -->
+                    <div>
+                        <h3 class="font-anton text-xl text-st-red mb-4">MANAGE PROJECTS</h3>
+                        <div id="admin-projects-list" class="space-y-4 max-h-96 overflow-y-auto">
+                            <!-- Admin project items -->
+                        </div>
+                    </div>
+
+                    <!-- Logout -->
+                    <div class="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
+                        <p class="font-retro text-gray-500">LOGGED IN AS: ADMIN</p>
+                        <button onclick="adminLogout()" 
+                                class="px-6 py-2 border border-st-red text-st-red hover:bg-st-red/20 rounded transition-colors">
+                            LOGOUT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/particles.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
